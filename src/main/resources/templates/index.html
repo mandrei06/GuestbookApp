@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to the Guestbook</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('../static/images/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            height: 100%;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .btn-custom {
+            margin: 10px;
+            color: white;
+            background-color: rgba(0, 123, 255, 0.7);
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: rgba(0, 123, 255, 1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="display-4">Welcome to the Guestbook</h1>
+    <p class="lead">Please login or register to leave your comments.</p>
+    <a th:href="@{/login}" class="btn btn-custom btn-lg">Login</a>
+    <a th:href="@{/users/register}" class="btn btn-custom btn-lg">Register</a>
+    <br>
+    <a th:href="@{/entries}" class="btn btn-custom btn-lg">View Guestbook Entries</a>
+</div>
+</body>
+</html>

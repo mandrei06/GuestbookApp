@@ -2,8 +2,12 @@ package com.guestbook.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 
 @Entity
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username")
+})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,19 +22,15 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     private String firstName;
-
-    @Column(nullable = false)
     private String lastName;
-
-    @Column(nullable = false)
     private String phoneNumber;
 
     @Column(nullable = false)
     private String role;
 
-    // Getters and Setters
+    @OneToMany(mappedBy = "user")
+    private List<GuestbookEntry> entries;
 
     public Long getId() {
         return id;

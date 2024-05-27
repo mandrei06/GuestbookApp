@@ -2,15 +2,17 @@ package com.guestbook.entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
 public class GuestbookEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String imageUrl;
+
+    @Column(nullable = true)
+    private String textContent;
 
     @Column(nullable = false)
     private boolean approved;
@@ -35,6 +37,14 @@ public class GuestbookEntry {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getTextContent() {
+        return textContent;
+    }
+
+    public void setTextContent(String textContent) {
+        this.textContent = textContent;
     }
 
     public boolean isApproved() {
